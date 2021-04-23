@@ -474,10 +474,11 @@ class MentionsInput extends React.Component {
     const currentDocument =
       (document.activeElement && document.activeElement.contentDocument) ||
       document
-    if (currentDocument.activeElement !== ev.target) {
-      // fix an IE bug (blur from empty input element with placeholder attribute trigger "input" event)
-      return
-    }
+    // prevents input field onChange with pop-out windows
+//     if (currentDocument.activeElement !== ev.target) {
+//       // fix an IE bug (blur from empty input element with placeholder attribute trigger "input" event)
+//       return
+//     }
 
     const value = this.props.value || ''
     const config = readConfigFromChildren(this.props.children)
